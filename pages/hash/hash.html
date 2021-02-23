@@ -1,0 +1,51 @@
+<br> <br>
+<br> 
+<br>
+<h1>SHA256 Hash</h1>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a ng-click="vm.showExplanation = !vm.showExplanation">Erklärung</a>
+        </h4>
+    </div>
+    <div class="panel-collapse collapse" ng-class="{in: vm.showExplanation}">
+        <div class="panel-body">
+            Von <a href="https://www.bitpanda.com/academy/de/lektionen/was-ist-eine-hash-funktion-in-einer-blockchain-transaktion/">Bitpanda</a>:
+            Kryptographische Hash-Funktionen generieren aus Datensätzen beliebiger Länge eine Zeichenfolge mit fester Länge. Ein Datensatz kann durch ein Wort, einen Satz, einen längeren Text oder eine ganze Datei gebildet werden. <br/><br/>
+            Ein Hash macht Folgendes:
+            <ul>
+                <li>Eine kryptographische Hash-Funktion wird zu Sicherheitszwecken verwendet und bildet sozusagen den Kern der kryptographischen Sicherheit</li>
+                <li>Eine Hash-Funktion wandelt eine beliebige Eingabe von Daten (“keys”) in eine Folge von Bytes mit fester Länge und Struktur (“Hash-Wert”) um.</li>
+                <li>Der Hash einer Transaktion erleichtert die Identifikation von Transaktionen in der Blockchain</li>
+            </ul>
+            In diesem Beispiel nutzen wir "SHA256" (Secure Hash Algorithm 2, 256 bit), der Hash, der auch im Bitcoin-Netzwerk verwendet wird.<br/>
+            Tippe ein beliebiges Wort oder mehrere Worte ein (die Daten) und schaue, wie sich der Hash verändert. 
+           </div>
+    </div>
+</div>
+
+<div class="well">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="data" class="col-sm-2 control-label">Input:</label>
+            <div class="col-sm-10">
+                <textarea id="data"
+                          rows="10"
+                          ng-model="vm.data"
+                          ng-change="vm.hash = $root.sha256(vm.data)"
+                          class="form-control">
+                </textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="hash" class="col-sm-2 control-label">Hash:</label>
+            <div class="col-sm-10">
+                <input id="hash"
+                       ng-readonly="true"
+                       ng-model="vm.hash"
+                       class="form-control">
+            </div>
+        </div>
+    </form>
+</div>
